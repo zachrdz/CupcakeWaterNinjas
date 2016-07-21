@@ -8,21 +8,14 @@
 <!--style sheets-->
 <!-- Bootstrap Core CSS -->
 <link href="{{ url('/vendor/twbs/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
-
+@yield('head')
 
 </head>
 
 <body>
-
 <!-- Page Content -->
     @yield('content')
     <!-- /.container -->
-
-
-
-
-
-
 
     <div class="container">
         <hr>

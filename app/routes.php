@@ -11,14 +11,21 @@
 |
 */
 
+Route::get('/signup' ,function()
+{
+		return View::make('signup');
+});
+
+Route::post('/signup', 'RegistrationController@signUp');
+
+
 Route::get('/', function()
 {
 	return View::make('hello');
 });
 
 
-
-Route::get('/login', function()
+Route::get('/login' ,function()
 {
-	return View::make('login');
+		return View::make('login');
 });
