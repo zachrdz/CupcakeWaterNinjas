@@ -17,7 +17,7 @@ Route::get('/signup' ,function()
 });
 
 Route::post('/signup', 'RegistrationController@signUp');
-
+Route::post('/loginUser', 'RegistrationController@loginUser');
 
 Route::get('/', function()
 {
