@@ -17,7 +17,9 @@ Route::get('/signup' ,function()
 });
 
 Route::post('/signup', 'RegistrationController@signUp');
+Route::post('/signup', 'RegistrationController@loginWithGoogle');
 Route::post('/loginUser', 'RegistrationController@loginUser');
+Route::get('/gAuth', 'RegistrationController@loginWithGoogle');
 
 Route::get('/', function()
 {

@@ -50,15 +50,15 @@
 				<div class="col-sm-offset-2 col-sm-10">
 
 				{{ Form:: submit('Login', [ 'class' => 'btn btn-primary btn-block']) }}
-         <div class="col-sm-6 text-right">
-        <a href="/signup"><img src="https://developers.google.com/identity/images/btn_google_signin_light_normal_web_short.png" style="height: 40px;" ></a>
-      </div>
           </div>
-				</div>
-			</div>
-
+					<div class ="col-sm-offset-2 col-sm-10">
 			{{Form::close()}}
+					{{Form::open(['action' => 'RegistrationController@loginWithGoogle', 'method' => 'POST', 'class' => 'form-horizontal'])}}
+					{{Form::submit('Login With Google', ['class' => 'btn btn-primary btn-block'])}}
+					{{Form::close()}}
+				</div>
 		</div>
+	</div>
 
 		<!--col 3 -->
 		<div class="col-md-3">
