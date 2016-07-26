@@ -16,6 +16,11 @@ Route::get('/signup' ,function()
 		return View::make('signup');
 });
 
+Route::get('/register' ,function()
+{
+		return View::make('register');
+});
+Route::post('/register', 'RegistrationController@registerUser');
 Route::post('/signup', 'RegistrationController@signUp');
 Route::post('/signup', 'RegistrationController@loginWithGoogle');
 Route::post('/loginUser', 'RegistrationController@loginUser');

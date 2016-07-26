@@ -1,6 +1,35 @@
 <?php
+
+
 class RegistrationController extends \BaseController{
 
+  protected function validator(array $data)
+     {
+
+ 		//these are required but not being filled out in the registration form
+ 	    //'firstName' => 'required|max:20',
+ 	    //'lastName' => 'required|max:40',
+
+         return Validator::make($data, [
+
+ 		'email' => 'required|email|max:255|unique:users',
+ 		'password' => 'required|confirmed|min:6|max:20',
+ 		'username' => 'required|max:255|unique:users,displayName',
+  ]);
+     }
+
+    public function registerUser(){
+
+      return User::create([
+              //'name' => $data['name'],
+              'email' => Input::get('email'),
+              'password' => Hash::make(Input::get('password')),
+
+      	    'username' => Input::get('username'),
+          ]);
+
+      return Make::view('hello');
+    }
     public function signUp(){
       return;
     }
