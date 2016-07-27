@@ -14,7 +14,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'User';
+	protected $table = 'users';
 
 	/**
 	     * The attributes that are mass assignable.
@@ -22,13 +22,12 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	     * @var array
 	     */
 	    protected $fillable = [
-	        'username', 'email', 'password', 'g_auth_token', 'createdAt', 'profile_pic','recipes_followed','status'
-	    ];
+	        'username', 'email', 'password', 'profile_pic' , 'recipes_followed', 'profile_type', 'g_auth_token', 'status'];
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
 	 * @var array
 	 */
-	protected $hidden = array('password','remember_token','g_auth_token');
+	protected $hidden = array('password','g_auth_token');
 
 }

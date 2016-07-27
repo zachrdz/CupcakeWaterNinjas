@@ -39,7 +39,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">Password Confirm</label>
             <div class="col-sm-10">
-              {{ Form::password("password" , [ 'placeholder' => 'Password Confirm', 'class' => 'form-control', 'required'])}}
+              {{ Form::password("repassword" , [ 'placeholder' => 'Password Confirm', 'class' => 'form-control', 'required'])}}
             </div>
           </div>
 
