@@ -20,6 +20,7 @@ Route::get('/register' ,function()
 {
 		return View::make('register');
 });
+//auth routes
 Route::post('/register', 'RegistrationController@registerUser');
 Route::post('/signup', 'RegistrationController@signUp');
 Route::post('/signup', 'RegistrationController@loginWithGoogle');
@@ -36,3 +37,7 @@ Route::get('/login' ,function()
 {
 		return View::make('login');
 });
+
+
+
+Route::get('/create/recipe', 'RecipeController@showCreateView');
