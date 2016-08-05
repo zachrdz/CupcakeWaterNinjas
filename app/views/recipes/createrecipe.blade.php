@@ -11,7 +11,7 @@
     <div class="col-md-7">
 
       <div class="panel panel-primary">
-        <div class="panel-heading">Your Friends</div>
+        <div class="panel-heading">Create A Recipe</div>
         its dat boi!!!
 
       </div>
