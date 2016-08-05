@@ -5,9 +5,18 @@
 @endsection
 
 @section('content')
+<div class="row">
 
+  <div class="col-md-offset-3">
+    <div class="col-md-7">
 
-its dat boi!!!
+      <div class="panel panel-primary">
+        <div class="panel-heading">Your Friends</div>
+        its dat boi!!!
 
+      </div>
+    </div>
+  </div>
+</div>
 
 @endsection
