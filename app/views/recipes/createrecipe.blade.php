@@ -5,18 +5,21 @@
 @endsection
 
 @section('content')
-<div class="row">
+<div class="container">
+  <div class="row">
 
-  <div class="col-md-offset-3">
-    <div class="col-md-7">
+    <div class="col-md-offset-2 col-md-8">
 
-      <div class="panel panel-primary">
-        <div class="panel-heading">Create A Recipe</div>
-        its dat boi!!!
 
+        <div class="panel panel-primary">
+          <div class="panel-heading">Create A Recipe</div>
+          its dat boi!!!
+
+        </div>
       </div>
-    </div>
+
   </div>
+
 </div>
 
 @endsection
