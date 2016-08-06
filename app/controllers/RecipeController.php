@@ -32,9 +32,10 @@ public function createRecipe(){
           $directions = Input::get('directions');
           $recipe_pic = Input::get('recipe_pic');
           try{
-
+          
           	// try to create recipe
             $recipe = Recipe::create([
+              'user_id' => 0,
               'recipe_name'=> $recipeName,
               'difficulty' => $difficulty,
               'likes' => 0,
