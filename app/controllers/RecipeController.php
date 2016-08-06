@@ -31,8 +31,17 @@ public function createRecipe(){
           $ingredients = Input::get('ingredients');
           $directions = Input::get('directions');
           $recipe_pic = Input::get('recipe_pic');
-          try{
-          
+          //test print
+        /*  echo '<p>' .
+          $recipeName .'<br />' .
+          $difficulty .'<br />' .
+          $ingredients .'<br />' .
+          $directions .'<br />' .
+          $recipe_pic .
+          '</p>';
+          */
+         try{
+
           	// try to create recipe
             $recipe = Recipe::create([
               'user_id' => 0,
@@ -45,15 +54,7 @@ public function createRecipe(){
               'directions' => $directions,
               'recipe_pic' => $recipe_pic
           	]);
-              //test print
-            /*  echo '<p>' .
-              $recipeName .'<br />' .
-              $difficulty .'<br />' .
-              $ingredients .'<br />' .
-              $directions .'<br />' .
-              $recipe_pic .
-              '</p>';
-              */
+
 
           }catch(Exception $e){
           	Session::flash('error_message',
