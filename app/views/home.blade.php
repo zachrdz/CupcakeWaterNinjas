@@ -7,7 +7,6 @@
 
 <!-- Default Theme -->
 <link rel="stylesheet" href="js/owl-carousel/owl.theme.css">
-<link rel="stylesheet" href="js/dropzone/dist/min/dropzone.min.css">
 
 <!--  jQuery 1.7+  -->
 <script src="jquery-1.9.1.min.js"></script>
@@ -15,8 +14,6 @@
 <!-- Include js plugin -->
 <script src="js/owl-carousel/owl.carousel.js"></script>
 
-<!-- Include js plugin -->
-<script src="js/dropzone/dist/min/dropzone.min.js"></script>
 @endsection
 
 @section('content')
