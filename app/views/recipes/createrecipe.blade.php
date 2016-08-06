@@ -39,14 +39,14 @@
         </div>
       </div>
       <div class="form-group">
-        <label class="col-sm-2 control-label">Recipe Name</label>
+        <label class="col-sm-2 control-label">Ingredients</label>
         <div class="col-sm-7">
           {{ Form::textarea('ingredients', null, [ 'placeholder' => 'Ingredients: Separate each ingredient by a new line!',
           'class' => 'form-control', 'required']) }}
         </div>
       </div>
       <div class="form-group">
-        <label class="col-sm-2 control-label">Recipe Name</label>
+        <label class="col-sm-2 control-label">Directions</label>
         <div class="col-sm-7">
           {{ Form::textarea('directions', null, [ 'placeholder' => 'Directions: Label each step and separate each step by a new line!',
           'class' => 'form-control', 'required']) }}
