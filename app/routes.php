@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/signup' ,function()
+Route::get('/login' ,function()
 {
 		return View::make('signup');
 });
@@ -22,10 +22,12 @@ Route::get('/register' ,function()
 });
 //auth routes
 Route::post('/register', 'RegistrationController@registerUser');
-Route::post('/signup', 'RegistrationController@signUp');
-Route::post('/signup', 'RegistrationController@loginWithGoogle');
+Route::post('/login', 'RegistrationController@signUp');
+Route::post('/login', 'RegistrationController@loginWithGoogle');
 Route::post('/loginUser', 'RegistrationController@loginUser');
 Route::get('/gAuth', 'RegistrationController@loginWithGoogle');
+
+Route::get('/logout', 'RegistrationController@logout');
 
 Route::get('/', function()
 {

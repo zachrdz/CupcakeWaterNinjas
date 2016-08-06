@@ -5,10 +5,6 @@
 @endsection
 
 @section('content')
-
-
-
-
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
@@ -20,6 +16,13 @@
             <label class="col-sm-2 control-label">Username</label>
             <div class="col-sm-10">
               {{ Form::text('username', Input::old('username'), [ 'placeholder' => 'Username',
+              'class' => 'form-control', 'required']) }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-10">
+              {{ Form::text('name', Input::old('username'), [ 'placeholder' => 'Username',
               'class' => 'form-control', 'required']) }}
             </div>
           </div>
@@ -42,16 +45,11 @@
               {{ Form::password("repassword" , [ 'placeholder' => 'Password Confirm', 'class' => 'form-control', 'required'])}}
             </div>
           </div>
-
-
           <div class="form-group">
             <div class = 'row'>
               <div class="col-sm-offset-4 col-sm-6 ">
-
                 {{ Form:: submit('Sign Up', [ 'class' => 'btn btn-primary btn-block']) }}
               </div>
-
-
             </div>
           </div>
         </div>

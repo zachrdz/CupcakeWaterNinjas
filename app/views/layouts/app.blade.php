@@ -37,10 +37,14 @@
         <li><a href="#">Open Option</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        @if(!Auth::check())
+        <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        @endif
+        @if(Auth::check())
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Account</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        @endif
       </ul>
     </div>
   </div>

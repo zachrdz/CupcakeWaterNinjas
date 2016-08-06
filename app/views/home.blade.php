@@ -45,7 +45,6 @@ $(document).ready(function() {
 
 </style>
 
-
 <div id="owl-demo">
   <div class="item"><img src="http://cdn.bulbagarden.net/upload/thumb/7/7e/006Charizard.png/600px-006Charizard.png" alt="Owl Image"></div>
   <div class="item"><img src="http://cdn.bulbagarden.net/upload/thumb/7/78/150Mewtwo.png/600px-150Mewtwo.png" alt="Owl Image"></div>
@@ -57,14 +56,4 @@ $(document).ready(function() {
   <div class="item"><img src="http://cdn.bulbagarden.net/upload/thumb/a/ae/003Venusaur.png/600px-003Venusaur.png" alt="Venusaur"></div>
 
 </div>
-
-
-
-
-
-
-
-
-
-
 @endsection

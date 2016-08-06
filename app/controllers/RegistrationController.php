@@ -7,6 +7,7 @@ class RegistrationController extends \BaseController{
 
   		$validation = Validator::make(Input::all(),[
         'username' => 'required|unique:users',
+        'name'  => 'required',
         'email' =>' required|unique:users',
   			'password' => 'required',
   			'repassword' => 'required'
@@ -17,19 +18,20 @@ class RegistrationController extends \BaseController{
               return Redirect::back()->withInput();
           }
       $uname = Input::get('username');
+      $name = Input::get('name');
   		$email = Input::get('email');
   		$password = Input::get('password');
   		$repassword = Input::get('repassword');
-  		//compare passwords
+
   		try{
   			User::create([
-          'username' => $uname,
+          'username' => 'ds',
+          'name'  => $name,
   				'email'	=> $email,
   				'password'	=> Hash::make($password),
           'profile_pic' => '',
           'recipes_followd' => '',
           'profile_type' => 'user',
-          'g_auth_token' => '',
           'status' => 0
   			]);
   		}catch(Exception $e){
@@ -38,15 +40,15 @@ class RegistrationController extends \BaseController{
   			return Redirect::back()->withInput();
   		}
   		Session::flash('success_message', 'Success! Welcome to Our Facbook');
-  		return Redirect::to('/signup');
-  	}
+      if (Auth::attempt(['email' => $email, 'password' => $password])){
+        return Redirect::to('/');
+      }
 
-    public function signUp(){
-      return;
     }
 
-    public function loginUser(){
-      return;
+    public function logout(){
+      Session::flush();
+      return Redirect::to('/');
     }
 
     public function loginWithGoogle(){
@@ -57,19 +59,36 @@ class RegistrationController extends \BaseController{
 
     if ( !empty( $code ) ) {
 
-
         $token = $googleService->requestAccessToken( $code );
 
         $result = json_decode( $googleService->request( 'https://www.googleapis.com/oauth2/v1/userinfo' ), true );
 
-        //Insert a user model to create a database entry given input returned by Google.
 
-        $message = 'Your unique Google user id is: ' . $result['id'] . ' and your name is ' . $result['name'];
-        echo $message. "<br/>";
+        if (Auth::attempt(['email' => $result['email'], 'password' => $result['id']])){
+          return Redirect::to('/');
+        }
 
-        dd($result);
+        try{
+    			User::create([
+            'username' => '',
+            'name'  => $result['name'],
+    				'email'	=> $result['email'],
+    				'password'	=> Hash::make($result['id']),
+            'profile_pic' => '',
+            'recipes_followd' => '',
+            'profile_type' => 'user',
+            'status' => 0
+    			]);
 
-    }
+    		}catch(Exception $e){
+    			//Errors Log
+    			 Session::flash('error_message', 'Oops! Something is wrong!');
+    			return Redirect::back()->withInput();
+    		}
+        if (Auth::attempt(['email' => $result['email'], 'password' => $result['id']])){
+          return View::make('gAuth', ['result' => $result]);
+        }
+      }
 
     else {
         $url = $googleService->getAuthorizationUri();

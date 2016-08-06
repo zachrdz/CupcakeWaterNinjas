@@ -5,9 +5,6 @@
 @endsection
 
 @section('content')
-
-
-
 <div class="container">
 		<!--col 1 -->
 		<div class="col-md-3">
@@ -23,12 +20,9 @@
 				</div>
 
 			@endif
-
 			<h1 class="text-center">Welcome to RecipeBois oh shit wut up!</h1>
 			<p class="text-center text-blue">Login to get started or sign in through Google</p>
-
 			{{Form::open(['action' => 'RegistrationController@loginUser', 'method' => 'POST', 'class' => 'form-horizontal'])}}
-
 			<div class="form-group">
 				<label class="col-sm-2 control-label">Email</label>
 				<div class="col-sm-10">
@@ -42,9 +36,6 @@
 					{{ Form::password("password" , [ 'placeholder' => 'Password', 'class' => 'form-control', 'required'])}}
 				</div>
 			</div>
-
-
-
 			<div class="form-group">
           <div class = 'row'>
 				<div class="col-sm-offset-2 col-sm-10">
