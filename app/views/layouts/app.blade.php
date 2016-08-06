@@ -33,7 +33,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="#">My Recipes</a></li>
+        <li><a href="/view/myrecipes">My Recipes</a></li>
         <li><a href="#">Open Option</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

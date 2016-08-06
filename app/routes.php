@@ -41,5 +41,6 @@ Route::get('/login' ,function()
 });
 
 
-
+//routes for view and create crecipe
 Route::get('/create/recipe', 'RecipeController@showCreateView');
+Route::get('/view/myrecipes','RecipeController@showMyRecipesView');
