@@ -10,20 +10,6 @@
 @endsection
 
 @section('content')
-<div class="container">
-  <div class="row">
-
-    <div class="col-md-offset-2 col-md-8">
-
-
-        <div class="panel panel-primary">
-          <div class="panel-heading">Create A Recipe</div>
-          
-
-        </div>
-      </div>
-  </div>
-</div>
 
 <form action="/file-upload"
       class="dropzone"

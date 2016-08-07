@@ -2,6 +2,10 @@
 
 @section('head')
 <link rel='icon' type='image/png' href='http://i.imgur.com/jm7EdAX.png' />
+<link rel="stylesheet" href="../js/dropzone/dist/min/dropzone.min.css">
+
+<!-- Include js plugin -->
+<script src="../js/dropzone/dist/min/dropzone.min.js"></script>
 @endsection
 
 @section('content')
@@ -22,51 +26,62 @@
   <div class="row">
 
 
-      {{Form::open(['action'=> 'RecipeController@createRecipe', 'method' => 'POST', 'class' => 'form-horizontal'])}}
-      <div class="form-group">
-        <label class="col-sm-2 control-label">Recipe Name</label>
-        <div class="col-sm-7">
-          {{ Form::text('recipeName', null, [ 'placeholder' => 'Recipe Name',
-          'class' => 'form-control', 'required']) }}
-        </div>
+    {{Form::open(['action'=> 'RecipeController@createRecipe', 'method' => 'POST', 'class' => 'form-horizontal'])}}
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Recipe Name</label>
+      <div class="col-sm-7">
+        {{ Form::text('recipeName', null, [ 'placeholder' => 'Recipe Name',
+        'class' => 'form-control', 'required']) }}
       </div>
-      <div class="form-group">
-        <label class="col-sm-2 control-label">Difficulty</label>
-        <div class="col-sm-7">
-          {{ Form::radio('difficulty', 'Beginner', true,['class' => 'field']) }} Beginner<br>
-          {{ Form::radio('difficulty', 'Intermediate',null,['class' => 'field']) }} Intermediate<br>
-          {{ Form::radio('difficulty', 'Advanced',null,['class' => 'field']) }} Advanced
-        </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Difficulty</label>
+      <div class="col-sm-7">
+        {{ Form::radio('difficulty', 'Beginner', true,['class' => 'field']) }} Beginner<br>
+        {{ Form::radio('difficulty', 'Intermediate',null,['class' => 'field']) }} Intermediate<br>
+        {{ Form::radio('difficulty', 'Advanced',null,['class' => 'field']) }} Advanced
       </div>
-      <div class="form-group">
-        <label class="col-sm-2 control-label">Ingredients</label>
-        <div class="col-sm-7">
-          {{ Form::textarea('ingredients', null, [ 'placeholder' => 'Ingredients: Separate each ingredient by a new line!',
-          'class' => 'form-control', 'required']) }}
-        </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Ingredients</label>
+      <div class="col-sm-7">
+        {{ Form::textarea('ingredients', null, [ 'placeholder' => 'Ingredients: Separate each ingredient by a new line!',
+        'class' => 'form-control', 'required']) }}
       </div>
-      <div class="form-group">
-        <label class="col-sm-2 control-label">Directions</label>
-        <div class="col-sm-7">
-          {{ Form::textarea('directions', null, [ 'placeholder' => 'Directions: Label each step and separate each step by a new line!',
-          'class' => 'form-control', 'required']) }}
-        </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Directions</label>
+      <div class="col-sm-7">
+        {{ Form::textarea('directions', null, [ 'placeholder' => 'Directions: Label each step and separate each step by a new line!',
+        'class' => 'form-control', 'required']) }}
       </div>
-      <div class="form-group">
-        <label class="col-sm-2 control-label">Cooked Food Picture</label>
-        <div class="col-sm-7">
-          {{ Form::text('recipe_pic', null, [ 'placeholder' => 'Directions: Integrate api',
-          'class' => 'form-control', 'required']) }}
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-6">
-        {{ Form:: submit('Submit Recipe', [ 'class' => 'btn btn-primary btn-block']) }}
-        </div>
-      </div>
+    </div>
 
+
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Cooked Food Picture</label>
+      <!--{{ Form::file('picture',['class' => 'dropzone' ,'id' => 'my-awesome-dropzone']) }}-->
+      <div class = "col-sm-7">
+
+
+        <div action="/file-upload"
+        class="dropzone"
+        id="my-awesome-dropzone">
+      </div>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+      {{ Form:: submit('Submit Recipe', [ 'class' => 'btn btn-primary btn-block'])}}
+      {{Form::close()}}
+    </div>
   </div>
 
 </div>
+
+</div>
+
 
 @endsection

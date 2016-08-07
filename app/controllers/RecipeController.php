@@ -31,6 +31,8 @@ public function createRecipe(){
           $ingredients = Input::get('ingredients');
           $directions = Input::get('directions');
           $recipe_pic = Input::get('recipe_pic');
+
+
           //test print
         /*  echo '<p>' .
           $recipeName .'<br />' .
@@ -81,6 +83,14 @@ public function showMyRecipesView(){
 
   //return View
   return View::make('recipes/myrecipes');
+}
+
+
+public function showRecipePage($id){
+  //query for the id in the database grab data store in oci_fetch_object
+
+  return View::make('recipes/viewrecipe');
+
 }
 
 }
