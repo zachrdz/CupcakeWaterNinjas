@@ -11,9 +11,6 @@
 
 @section('content')
 
-<form action="/file-upload"
-      class="dropzone"
-      id="my-awesome-dropzone">
-</form>
+<a href="/create/recipe" class="btn btn-primary">Create a new recipe</a>
 
 @endsection
