@@ -34,8 +34,11 @@
 
 </div>
 
+
+
 <!-- Content Start - Just for visualization -->
 <div id="content">
+  <h2><b>Most recent recipes</b></h2>
  <!-- Recipe Start -->
 	<div class="recipe">
 		<div class="image">
@@ -108,6 +111,30 @@
   		</ul>
 	</div>
   <!-- Recipe End -->
+
+
+
+@for($i = 0; $i < 20; $i++)
+<!-- Recipe Start -->
+<div class="recipe">
+ <div class="image">
+     <img src="http://data3.whicdn.com/images/60675612/large.jpg">
+     <div class="likes">
+       <i class="fa fa-heart-o lv"></i>
+   </div>
+   <div class="name">
+     <h3>Banana Walnut Muffin Pancakes</h3>
+   </div>
+ </div>
+   <ul class="media">
+     <li><i class="fa fa-clock-o"></i> 25 Minutes</li>
+     <li><i class="fa fa-leaf"></i> 270 Calories</li>
+     <li><i class="fa fa-cutlery"></i> 2 People</li>
+   </ul>
+</div>
+<!-- Recipe End -->
+@endfor
+
 
 <!-- Content End -->
 </div>

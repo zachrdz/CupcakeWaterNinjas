@@ -21,7 +21,7 @@
   list-style-type: none;
 }
 body {
-  color:#FFF;
+  color:#000;
   background:url('http://subtlepatterns.com/patterns/gplaypattern.png');
 }
 
@@ -33,7 +33,7 @@ h3 {
 
 #content {
   width: 100%;
-  max-width:1000px;
+  max-width:1500px;
   padding:15px;
   margin: 0 auto;
   text-align: center;
