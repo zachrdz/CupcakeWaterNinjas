@@ -34,7 +34,6 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="/view/myrecipes">My Recipes</a></li>
-        <li><a href="#">Open Option</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         @if(!Auth::check())
@@ -42,7 +41,7 @@
         <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         @endif
         @if(Auth::check())
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Account</a></li>
+        <li><a href="/useraccount"><span class="glyphicon glyphicon-user"></span> Account</a></li>
         <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         @endif
       </ul>

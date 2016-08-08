@@ -19,9 +19,9 @@ class AccountController extends BaseController {
 	{
 
     //query for logged in user Info
-
+		$user = Auth::user();
     //pass info to the page to fill out
-		return View::make('useraccountpage');
+		return View::make('useraccountpage',['user' =>$user]);
 	}
 
   public function postAccountChanges(){
