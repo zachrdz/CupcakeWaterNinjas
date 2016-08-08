@@ -9,7 +9,8 @@
 <link rel="stylesheet" href="js/owl-carousel/owl.theme.css">
 
 <link rel="stylesheet" href="css/home_page.css">
-
+<link rel="stylesheet" href="css/font-awesome-4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/font-awesome-4.6.3/css/font-awesome.css">
 <!--  jQuery 1.7+  -->
 <script src="jquery-1.9.1.min.js"></script>
 
