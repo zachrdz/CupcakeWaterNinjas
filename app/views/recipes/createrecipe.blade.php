@@ -2,6 +2,9 @@
 
 @section('head')
 <link rel='icon' type='image/png' href='http://i.imgur.com/jm7EdAX.png' />
+<link rel="stylesheet" href="../js/dropzone/dist/min/dropzone.min.css">
+
+<script src="../js/dropzone/dist/min/dropzone.min.js"></script>
 @endsection
 
 @section('content')
@@ -55,10 +58,10 @@
       <div class="form-group">
         <label class="col-sm-2 control-label">Cooked Food Picture</label>
         <div class="col-sm-7">
-          {{ Form::text('recipe_pic', null, [ 'placeholder' => 'Directions: Integrate api',
-          'class' => 'form-control', 'required']) }}
-        </div>
+          <div class='dropzone' id='dopzoneFileUpload'></div>
       </div>
+    </div>
+    </div>
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-6">
         {{ Form:: submit('Submit Recipe', [ 'class' => 'btn btn-primary btn-block']) }}
@@ -69,5 +72,23 @@
   </div>
 
 </div>
+<script type="text/javascript">
+            var baseUrl = "{{ url('/') }}";
+            var token = "{{ Session::getToken() }}";
+            Dropzone.autoDiscover = false;
+             var myDropzone = new Dropzone("div#dropzoneFileUpload", {
+                 url: baseUrl+"/dropzone/uploadFiles",
+                 params: {
+                    _token: token
+                  }
+             });
+             Dropzone.options.myAwesomeDropzone = {
+                paramName: "file", // The name that will be used to transfer the file
+                maxFilesize: 2, // MB
+                addRemoveLinks: true,
+                accept: function(file, done) {
 
+                },
+              };
+</script>
 @endsection

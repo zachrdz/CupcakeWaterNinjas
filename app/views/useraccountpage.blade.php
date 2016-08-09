@@ -48,7 +48,7 @@
           <div class="form-group">
             <div class = 'row'>
               <div class="col-sm-offset-4 col-sm-6 ">
-                {{ Form:: submit('Change Account Information', [ 'class' => 'btn btn-primary btn-block']) }}
+                {{Form::submit('Change Account Information', [ 'class' => 'btn btn-primary btn-block']) }}
                 {{Form::close()}}
               </div>
             </div>
