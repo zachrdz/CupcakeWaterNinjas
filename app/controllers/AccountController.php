@@ -26,7 +26,9 @@ class AccountController extends BaseController {
 
   public function postAccountChanges(){
 
-
+		$user = Auth::user();
+		$userDataInTable = User::find($user->id);
+		
     showAccountPage();
   }
 
