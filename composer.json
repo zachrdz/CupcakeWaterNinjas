@@ -6,7 +6,9 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"artdarek/oauth-4-laravel": "dev-master",
-		"enyo/dropzone": "^4.3"
+		"enyo/dropzone": "^4.3",
+		"phpunit/phpunit": "4.4.*",
+		"codeception/codeception": "2.0"
 	},
 	"autoload": {
 		"classmap": [
