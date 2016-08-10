@@ -22,7 +22,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	     * @var array
 	     */
 	    protected $fillable = [
-	        'username', 'email', 'password', 'profile_pic' , 'recipes_followed', 'profile_type', 'g_auth_token', 'status'];
+	        'name', 'email', 'password', 'profile_pic' , 'recipes_followed', 'profile_type', 'g_auth_token', 'status'];
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *

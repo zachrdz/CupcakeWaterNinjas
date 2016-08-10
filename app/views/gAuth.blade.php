@@ -11,7 +11,7 @@
       <div class="panel panel-default">
         <div class="panel-heading">Account Created</div>
         <div class="panel-body">
-          <h2>Thank You for creating an account {{$result['name']}!}</h2>
+          <h2>Thank You for creating an account {{$result['name']}}!</h2>
           <a href='/' class='btn btn-primary'>Home Page</a>
         </div>
       </div>

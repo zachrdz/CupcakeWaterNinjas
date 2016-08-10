@@ -34,6 +34,7 @@ class RegistrationController extends \BaseController{
           'profile_type' => 'user',
           'status' => 0
   			]);
+
   		}catch(Exception $e){
   			//Errors Log
   			 Session::flash('error_message', 'Oops! Something is wrong!');
@@ -70,7 +71,6 @@ class RegistrationController extends \BaseController{
 
         try{
     			User::create([
-            'username' => '',
             'name'  => $result['name'],
     				'email'	=> $result['email'],
     				'password'	=> Hash::make($result['id']),
