@@ -11,6 +11,9 @@
 		</div>
 
 		<!--col 2 -->
+		<div class='row'>
+
+
 		<div class="col-md-6 myform">
 
 			@if(Session::has('error_message'))
@@ -20,6 +23,8 @@
 				</div>
 
 			@endif
+		</div>
+	</div>
 			<h1 class="text-center">Welcome to RecipeBois oh shit wut up!</h1>
 			<p class="text-center text-blue">Login to get started or sign in through Google</p>
 			{{Form::open(['action' => 'RegistrationController@loginUser', 'method' => 'POST', 'class' => 'form-horizontal'])}}

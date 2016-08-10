@@ -3,21 +3,43 @@
 
 class RegistrationController extends \BaseController{
 
+
+
+  public function loginUser(){
+    $validation = Validator::make(Input::all(),[
+      'email' =>' required',
+      'password' => 'required'
+    ]);
+    if($validation->fails()){
+            $messages = $validation->messages();
+            Session::flash('error_message', $messages);
+            return Redirect::back()->withInput();
+        }
+
+      if (Auth::attempt(['email' =>Input::get('email'), 'password' => Input::get('password')])){
+
+    			return Redirect::to('/');
+    		}else{
+
+    			Session::flash('error_message', 'Invalid credentials');
+    			return Redirect::to('/login')->withInput();
+
+    		}
+  }
+
   public function registerUser(){
 
   		$validation = Validator::make(Input::all(),[
-        'username' => 'required|unique:users',
         'name'  => 'required',
         'email' =>' required|unique:users',
   			'password' => 'required',
-  			'repassword' => 'required'
+  			'repassword' => 'required|same:password'
   		]);
   		if($validation->fails()){
               $messages = $validation->messages();
-              Session::flash('validation_messages', $messages);
+              Session::flash('error_message', $messages);
               return Redirect::back()->withInput();
           }
-      $uname = Input::get('username');
       $name = Input::get('name');
   		$email = Input::get('email');
   		$password = Input::get('password');
@@ -25,7 +47,6 @@ class RegistrationController extends \BaseController{
 
   		try{
   			User::create([
-          'username' => 'ds',
           'name'  => $name,
   				'email'	=> $email,
   				'password'	=> Hash::make($password),

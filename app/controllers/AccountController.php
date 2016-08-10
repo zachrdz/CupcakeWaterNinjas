@@ -25,11 +25,35 @@ class AccountController extends BaseController {
 	}
 
   public function postAccountChanges(){
+		if(!Auth::check()){
+			Redirect::to('/');
+		}
 
+		$validation = Validator::make(Input::all(),[
+			'profile_pic' => '',
+			'name'  => 'required',
+			'password' => 'required',
+			'repassword' => 'required|same:password'
+		]);
+		if($validation->fails()){
+						$messages = $validation->messages();
+						Session::flash('error_message', $messages);
+						return Redirect::back()->withInput();
+				}
 		$user = Auth::user();
-		$userDataInTable = User::find($user->id);
-		
-    showAccountPage();
+
+		if(Input::get('profile_pic') != null){
+			DB::table('users')
+            ->where('id', $user->id)
+            ->update(['profile_pic' => Input::get('profile_pic')]);
+					}
+		DB::table('users')
+				    ->where('id', $user->id)
+				    ->update(['password' => Hash::make(Input::get('password'))]);
+
+
+
+  return View::make('useraccountpage',['user' =>$user]);
   }
 
 }

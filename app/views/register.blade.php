@@ -13,16 +13,9 @@
         <div class="panel-body">
           	{{Form::open(['action' => 'RegistrationController@registerUser', 'method' => 'POST', 'class' => 'form-horizontal'])}}
           <div class="form-group">
-            <label class="col-sm-2 control-label">Username</label>
-            <div class="col-sm-10">
-              {{ Form::text('username', Input::old('username'), [ 'placeholder' => 'Username',
-              'class' => 'form-control', 'required']) }}
-            </div>
-          </div>
-          <div class="form-group">
             <label class="col-sm-2 control-label">Name</label>
             <div class="col-sm-10">
-              {{ Form::text('name', Input::old('username'), [ 'placeholder' => 'Username',
+              {{ Form::text('name', Input::old('username'), [ 'placeholder' => 'Name',
               'class' => 'form-control', 'required']) }}
             </div>
           </div>
