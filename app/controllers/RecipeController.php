@@ -30,7 +30,7 @@ public function createRecipe(){
           $difficulty = Input::get('difficulty');
           $ingredients = Input::get('ingredients');
           $directions = Input::get('directions');
-          $recipe_pic = Input::get('recipe_pic');
+
           //test print
         /*  echo '<p>' .
           $recipeName .'<br />' .
@@ -52,7 +52,7 @@ public function createRecipe(){
               'views' => 0,
               'ingredients' =>  $ingredients,
               'directions' => $directions,
-              'recipe_pic' => $recipe_pic
+            
           	]);
 
 

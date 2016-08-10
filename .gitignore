@@ -24,3 +24,4 @@ composer.lock
 Thumbs.db
 
 tests/_output/*
+tests/_output/*
