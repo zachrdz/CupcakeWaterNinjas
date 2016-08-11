@@ -31,17 +31,13 @@ Route::post('/useraccount','AccountController@postAccountChanges');
 
 Route::get('/logout', 'RegistrationController@logout');
 
-Route::get('/', function()
-{
-	return View::make('home');
-});
+//Route::get('/', function()
+//{
+	//return View::make('home');
+//});
 
 
-Route::get('/login' ,function()
-{
-		return View::make('login');
-});
-
+Route::get('/', 'HomeController@showWelcome');
 
 //routes for view and create crecipe
 Route::get('/create/recipe', 'RecipeController@showCreateView');
