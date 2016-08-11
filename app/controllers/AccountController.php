@@ -25,9 +25,6 @@ class AccountController extends BaseController {
 	}
 
   public function postAccountChanges(){
-		if(!Auth::check()){
-			Redirect::to('/');
-		}
 
 		$validation = Validator::make(Input::all(),[
 			'profile_pic' => '',
