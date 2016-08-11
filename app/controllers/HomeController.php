@@ -17,7 +17,19 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
-		return View::make('hello');
+
+		$user = Auth::user();
+		$recipes = Recipe::all();
+		$my_recipes = Recipe::where('user_id', '=', $user->id)->get();
+
+
+
+		return View::make('home', [
+			'user' => $user,
+			'recipes' => $recipes,
+			'my_recipes' => $my_recipes
+
+		]);
 	}
 
 }

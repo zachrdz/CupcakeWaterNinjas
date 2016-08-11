@@ -30,6 +30,10 @@ public function createRecipe(){
           $difficulty = Input::get('difficulty');
           $ingredients = Input::get('ingredients');
           $directions = Input::get('directions');
+          $recipe_pic = "";
+          if($recipe_pic == ""){
+            $recipe_pic = "http://www.pani-food.com/img/uploads/restaurant-default.png";
+          }
 
           //test print
         /*  echo '<p>' .
@@ -44,7 +48,7 @@ public function createRecipe(){
 
           	// try to create recipe
             $recipe = Recipe::create([
-              'user_id' => 0,
+              'user_id' => $user->id,
               'recipe_name'=> $recipeName,
               'difficulty' => $difficulty,
               'likes' => 0,
@@ -52,7 +56,8 @@ public function createRecipe(){
               'views' => 0,
               'ingredients' =>  $ingredients,
               'directions' => $directions,
-            
+              'recipe_pic' => $recipe_pic
+
           	]);
 
 

@@ -87,14 +87,15 @@
 <div id="content">
   <h2><b>Most recent recipes</b></h2>
  <!-- Recipe Start -->
+ @foreach($recipes as $recipe)
 	<div class="recipe">
 		<div class="image">
-	    	<img src="http://media-cache-ak0.pinimg.com/736x/1d/00/01/1d0001fa63225bff898025658a90bece.jpg">
+	    	<img src="{{$recipe->recipe_pic}}">
 	  		<div class="likes">
 	    		<i class="fa fa-heart-o lv" data-test="pulse"></i>
 			</div>
 	 		<div class="name">
-	 			<h3>Conchiglioni with Tofu Ricotta</h3>
+	 			<h3>{{$recipe->recipe_name}}</h3>
 	 		</div>
 		</div>
   		<ul class="media">
@@ -104,83 +105,10 @@
   		</ul>
 	</div>
   <!-- Recipe End -->
-   <!-- Recipe Start -->
-	<div class="recipe">
-		<div class="image">
-	    	<img src="https://anodetomungbeans.files.wordpress.com/2013/11/dsc_0330.jpg">
-	  		<div class="likes">
-	    		<i class="fa fa-heart-o lv"></i>
-			</div>
-	 		<div class="name">
-	 			<h3>Cauliflower Rice Sushi</h3>
-	 		</div>
-		</div>
-  		<ul class="media">
-		    <li><i class="fa fa-clock-o"></i> 45 Minutes</li>
-		    <li><i class="fa fa-leaf"></i> 175 Calories</li>
-		    <li><i class="fa fa-cutlery"></i> 2 People</li>
-  		</ul>
-	</div>
-  <!-- Recipe End -->
-   <!-- Recipe Start -->
-	<div class="recipe">
-		<div class="image">
-	    	<img src="http://gourmandelle.com/wp-content/uploads/2013/10/Chiftelute-de-naut-Falafel-Chickpea-Patties-Recipe.jpg">
-	  		<div class="likes">
-	    		<i class="fa fa-heart-o lv"></i>
-			</div>
-	 		<div class="name">
-	 			<h3>Chickpea Falafel</h3>
-	 		</div>
-		</div>
-  		<ul class="media">
-		    <li><i class="fa fa-clock-o"></i> 75 Minutes</li>
-		    <li><i class="fa fa-leaf"></i> 85 Calories</li>
-		    <li><i class="fa fa-cutlery"></i> 6 People</li>
-  		</ul>
-	</div>
-  <!-- Recipe End -->
-   <!-- Recipe Start -->
-	<div class="recipe">
-		<div class="image">
-	    	<img src="http://data3.whicdn.com/images/60675612/large.jpg">
-	  		<div class="likes">
-	    		<i class="fa fa-heart-o lv"></i>
-			</div>
-	 		<div class="name">
-	 			<h3>Banana Walnut Muffin Pancakes</h3>
-	 		</div>
-		</div>
-  		<ul class="media">
-		    <li><i class="fa fa-clock-o"></i> 25 Minutes</li>
-		    <li><i class="fa fa-leaf"></i> 270 Calories</li>
-		    <li><i class="fa fa-cutlery"></i> 2 People</li>
-  		</ul>
-	</div>
-  <!-- Recipe End -->
+  @endforeach
 
 
 
-@for($i = 0; $i < 20; $i++)
-<!-- Recipe Start -->
-<div class="recipe">
- <div class="image">
-     <img src="http://data3.whicdn.com/images/60675612/large.jpg">
-     <div class="likes">
-       <i class="fa fa-heart-o lv"></i>
-   </div>
-   <div class="name">
-     <h3>Banana Walnut Muffin Pancakes</h3>
-   </div>
- </div>
-   <ul class="media">
-     <li><i class="fa fa-clock-o"></i> 25 Minutes</li>
-     <li><i class="fa fa-leaf"></i> 270 Calories</li>
-     <li><i class="fa fa-cutlery"></i> 2 People</li>
-   </ul>
-</div>
-<!-- Recipe End -->
-@endfor
 
 
 <!-- Content End -->
