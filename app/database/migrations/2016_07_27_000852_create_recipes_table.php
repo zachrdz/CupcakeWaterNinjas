@@ -17,7 +17,7 @@ class CreateRecipesTable extends Migration {
 			$table->increments('id');
 			$table->integer('user_id');
 			$table->string('recipe_name', 255);
-			$table->integer('difficulty');
+			$table->string('difficulty');
 			$table->integer('likes');
 			$table->integer('dislikes');
 			$table->integer('views');

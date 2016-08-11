@@ -13,4 +13,26 @@
 
 <a href="/create/recipe" class="btn btn-primary">Create a new recipe</a>
 
+
+@foreach($myRecipes as $recipe)
+
+
+<p>
+  {{$recipe->recipe_name}}
+</p>
+
+
+@endforeach
+@foreach($myLikedRecipes as $likedrecipe)
+
+<div>
+
+
+<p>
+  {{$likedrecipe->recipe_name}}
+</p>
+</div>
+
+@endforeach
+
 @endsection

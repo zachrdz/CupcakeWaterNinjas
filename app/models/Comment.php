@@ -12,7 +12,7 @@ class Comment extends Eloquent{
   	protected $table = 'comments';
 
     protected $fillable = [
-        'user_id','recipe_id','comment'];
+        'user_id','recipe_id','comment','fname','profile_pic'];
 
 
 }

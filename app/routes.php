@@ -49,3 +49,6 @@ Route::get('/view/myrecipes','RecipeController@showMyRecipesView');
 Route::post('/create/recipe','RecipeController@createRecipe');
 //routes for reutrning recipes changes
 Route::get('/recipepage/{id}','RecipeController@showRecipePage');
+
+//create a comment on  recipe page
+Route::post('/recipepage/{id}','RecipeController@createComment');

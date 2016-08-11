@@ -6,11 +6,13 @@ class RecipeController extends \BaseController {
 
 //create recipe View
 public function showCreateView(){
-
+  if(!Auth::check()){
+    Redirect::to('/');
+  }
     return View::make('recipes/createrecipe');
 }
 
-
+//create a recipe
 public function createRecipe(){
 
   		$validation = Validator::make(Input::all(),[
@@ -52,7 +54,7 @@ public function createRecipe(){
               'views' => 0,
               'ingredients' =>  $ingredients,
               'directions' => $directions,
-            
+
           	]);
 
 
@@ -67,20 +69,71 @@ public function createRecipe(){
 
 }
 
-//show recipes page
+//show my recipes
 public function showMyRecipesView(){
   //auth check
-//  if(){
+  if(!Auth::check()){
+    Redirect::to('/');
+  }
 
-  //}
-
-
+  $user = Auth::user();
   //db request all recipes that correspond to the user id
-
+  $myRecipes = recipe::where('user_id','=', $user->id)->get();
+  $myLikedRecipes = like::where('user_liking_id', '=', $user->id)->get();
+  $likeList = [];
+  $i=0;
+  foreach($myLikedRecipes as $likes){
+    $likeList[$i++] = recipe::where('id' ,'=', $likes->recipe_id)->first();
+  }
 
 
   //return View
-  return View::make('recipes/myrecipes');
+  return View::make('recipes/myrecipes',['myRecipes' => $myRecipes, 'myLikedRecipes' => $likeList]);
 }
 
+//show indiviual recipe page
+public function showRecipePage($id){
+  //query for the id in the database grab data store in oci_fetch_object
+  $recipe = recipe::where('id' ,'=',$id)->first();
+  $comments = comment::where('recipe_id','=', $id)->get();
+   return View::make('recipes/viewrecipe',['recipe' => $recipe,'comments' => $comments]);
+ }
+
+
+ public function createComment($id){
+
+   $validation = Validator::make(Input::all(),[
+     'comment' =>' required',
+     'id'	=> 'required'
+   ]);
+
+   if($validation->fails()){
+           $messages = $validation->messages();
+           Session::flash('error_messages', $messages);
+           return Redirect::back()->withInput();
+       }
+
+       $user = Auth::user();
+
+       try{
+
+        $comment = comment::create([
+          'comment' => Input::get('comment'),
+          'user_id'	=> $user->id,
+          'recipe_id'	=> Input::get('id'), //Post ID
+          'fname'	=> $user->name,
+          'profile_pic'	=> $user->profile_pic
+        ]);
+
+
+       }catch(Exception $e){
+        Session::flash('error_message',
+        'Oops! Something is wrong');
+        return Redirect::back()->withInput();
+       }
+       $recipe = recipe::where('id' ,'=',Input::get('id'))->first();
+       $comments = comment::where('recipe_id','=', Input::get('id'))->get();
+        return View::make('recipes/viewrecipe',['recipe' => $recipe,'comments' => $comments]);
+
+ }
 }

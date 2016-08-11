@@ -18,6 +18,8 @@ class CreateCommentsTable extends Migration {
 			$table->integer('user_id');
 			$table->integer('recipe_id');
 			$table->text('comment');
+			$table->string('fname');
+			$table->string('profile_pic');
 			$table->timestamps();
 		});
 	}
