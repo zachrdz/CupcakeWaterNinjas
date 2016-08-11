@@ -18,18 +18,11 @@ class HomeController extends BaseController {
 	public function showWelcome()
 	{
 
-		$user = Auth::user();
 		$recipes = Recipe::all();
-		$my_recipes = Recipe::where('user_id', '=', $user->id)->get();
 
 
+		return View::make('home', ['recipes' => $recipes]);
 
-		return View::make('home', [
-			'user' => $user,
-			'recipes' => $recipes,
-			'my_recipes' => $my_recipes
-
-		]);
 	}
 
 }

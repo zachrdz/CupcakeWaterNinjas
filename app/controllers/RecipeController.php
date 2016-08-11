@@ -58,10 +58,6 @@ public function createRecipe(){
               'views' => 0,
               'ingredients' =>  $ingredients,
               'directions' => $directions,
-<<<<<<< HEAD
-=======
-              'recipe_pic' => $recipe_pic
->>>>>>> 8bf50d9be474dd3f7289e3a0a9e50de4fd7b3b6d
 
           	]);
 
