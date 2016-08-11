@@ -23,7 +23,6 @@
 
 
 <div class="container">
-  <div class="row-fluid">
     <div class="col-md-4">
       <div class="profile">
         <img src="{{$user->profile_pic}}">
@@ -60,30 +59,36 @@
         </div>
       </div>
     </div>
-    
-  </div>
+    <div class = "row">
+      <div class="col-md-8">
+        <div id="content">
+          <h2><b>My Liked Recipes</b></h2>
+          @foreach($myLikedRecipes as $recipe)
+          <div class="recipe">
+            <div class="image">
+              <a href={{ url('/recipepage/' . $recipe->id) }}><img src="{{$recipe->recipe_pic}}"></a>
+              <div class="likes">
+                <i class="fa fa-heart-o lv" data-test="pulse"></i>
+              </div>
+              <div class="name">
+                <h3>{{$recipe->recipe_name}}</h3>
+              </div>
+            </div>
+            <ul class="media">
+              <li><i class="fa fa-clock-o"></i> {{$recipe->cook_time}} Minutes</li>
+              <li><i class="fa fa-leaf"></i> 250 Calories</li>
+              <li><i class="fa fa-cutlery"></i> 4 People</li>
+            </ul>
+          </div>
+          @endforeach
+          <div>
+            {{ $myLikedRecipes->links() }}
+          </div>
+        </div>
+      </div>
+    </div>
+
 </div>
-
-
-
-
-
-
-
-
-
-
-@foreach($myLikedRecipes as $likedrecipe)
-
-<div>
-
-
-  <p>
-    {{$likedrecipe->recipe_name}}
-  </p>
-</div>
-
-@endforeach
 
 <script>
 var heart = false;
