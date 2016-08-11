@@ -32,6 +32,7 @@ public function createRecipe(){
           $difficulty = Input::get('difficulty');
           $ingredients = Input::get('ingredients');
           $directions = Input::get('directions');
+          $cook_time = Input::get('cook_time');
           $recipe_pic = "";
           if($recipe_pic == ""){
             $recipe_pic = "http://www.pani-food.com/img/uploads/restaurant-default.png";
@@ -58,6 +59,8 @@ public function createRecipe(){
               'views' => 0,
               'ingredients' =>  $ingredients,
               'directions' => $directions,
+              'cook_time' => $cook_time,
+              'recipe_pic' => $recipe_pic
 
           	]);
 
@@ -82,7 +85,12 @@ public function showMyRecipesView(){
 
   $user = Auth::user();
   //db request all recipes that correspond to the user id
-  $myRecipes = recipe::where('user_id','=', $user->id)->get();
+  $myRecipes = recipe::where('user_id','=', $user->id)->paginate(6);
+
+
+  //myRecipes2 is used get the correct number of recipes since the paginate above
+  //will produce an incorrect # of recipes with count()
+  $myRecipes2 = recipe::where('user_id','=', $user->id)->get();
   $myLikedRecipes = like::where('user_liking_id', '=', $user->id)->get();
   $likeList = [];
   $i=0;
@@ -90,9 +98,16 @@ public function showMyRecipesView(){
     $likeList[$i++] = recipe::where('id' ,'=', $likes->recipe_id)->first();
   }
 
+  //Get the number of recipes added by the current user
+  $myRecipe_count = count($myRecipes2);
 
   //return View
-  return View::make('recipes/myrecipes',['myRecipes' => $myRecipes, 'myLikedRecipes' => $likeList]);
+  return View::make('recipes/myrecipes',[
+    'myRecipes' => $myRecipes,
+    'myRecipe_count' => $myRecipe_count,
+    'myLikedRecipes' => $likeList,
+    'user' => $user
+  ]);
 }
 
 //show indiviual recipe page

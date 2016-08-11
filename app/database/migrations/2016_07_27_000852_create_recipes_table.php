@@ -24,6 +24,7 @@ class CreateRecipesTable extends Migration {
 			$table->text('ingredients');
 			$table->text('directions');
 			$table->string('recipe_pic');
+			$table->integer('cook_time');
 			$table->timestamps();
 		});
 	}

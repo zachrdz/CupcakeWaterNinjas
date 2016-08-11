@@ -42,6 +42,13 @@
         </div>
       </div>
       <div class="form-group">
+        <label class="col-sm-2 control-label">Cook Time</label>
+        <div class="col-sm-7">
+          {{ Form::text('cook_time', null, [ 'placeholder' => 'Cook Time in minutes: Enter 70 for 70 minutes',
+          'class' => 'form-control', 'required']) }}
+        </div>
+      </div>
+      <div class="form-group">
         <label class="col-sm-2 control-label">Ingredients</label>
         <div class="col-sm-7">
           {{ Form::textarea('ingredients', null, [ 'placeholder' => 'Ingredients: Separate each ingredient by a new line!',

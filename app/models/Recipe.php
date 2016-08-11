@@ -12,7 +12,7 @@ class Recipe extends Eloquent{
   	protected $table = 'recipes';
 
     protected $fillable = [
-        'user_id','recipe_name','difficulty','likes','dislikes','views','ingredients','directions','recipe_pic'];
+        'user_id','recipe_name','difficulty','likes','dislikes','views','ingredients','directions','recipe_pic', 'cook_time'];
 
 
 }
