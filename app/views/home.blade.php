@@ -90,7 +90,7 @@
  @foreach($recipes as $recipe)
 	<div class="recipe">
 		<div class="image">
-	    	<img src="{{$recipe->recipe_pic}}">
+	    	  <a href={{ url('/recipepage/' . $recipe->id) }}><img src="{{$recipe->recipe_pic}}"></a>
 	  		<div class="likes">
 	    		<i class="fa fa-heart-o lv" data-test="pulse"></i>
 			</div>

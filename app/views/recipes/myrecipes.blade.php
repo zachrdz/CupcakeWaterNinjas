@@ -32,33 +32,35 @@
         <p><a href="/create/recipe" class="btn btn-primary">Create a new recipe</a></p>
       </div>
     </div>
-
-    <div class="col-md-8">
-      <div id="content">
-        <h2><b>My Recipes</b></h2>
-        @foreach($myRecipes as $recipe)
-        <div class="recipe">
-          <div class="image">
-            <img src="{{$recipe->recipe_pic}}">
-            <div class="likes">
-              <i class="fa fa-heart-o lv" data-test="pulse"></i>
+    <div class = "row">
+      <div class="col-md-8">
+        <div id="content">
+          <h2><b>My Recipes</b></h2>
+          @foreach($myRecipes as $recipe)
+          <div class="recipe">
+            <div class="image">
+              <a href={{ url('/recipepage/' . $recipe->id) }}><img src="{{$recipe->recipe_pic}}"></a>
+              <div class="likes">
+                <i class="fa fa-heart-o lv" data-test="pulse"></i>
+              </div>
+              <div class="name">
+                <h3>{{$recipe->recipe_name}}</h3>
+              </div>
             </div>
-            <div class="name">
-              <h3>{{$recipe->recipe_name}}</h3>
-            </div>
+            <ul class="media">
+              <li><i class="fa fa-clock-o"></i> {{$recipe->cook_time}} Minutes</li>
+              <li><i class="fa fa-leaf"></i> 250 Calories</li>
+              <li><i class="fa fa-cutlery"></i> 4 People</li>
+            </ul>
           </div>
-          <ul class="media">
-            <li><i class="fa fa-clock-o"></i> {{$recipe->cook_time}} Minutes</li>
-            <li><i class="fa fa-leaf"></i> 250 Calories</li>
-            <li><i class="fa fa-cutlery"></i> 4 People</li>
-          </ul>
-        </div>
-        @endforeach
-        <div>
-          {{ $myRecipes->links() }}
+          @endforeach
+          <div>
+            {{ $myRecipes->links() }}
+          </div>
         </div>
       </div>
     </div>
+    
   </div>
 </div>
 
@@ -76,9 +78,9 @@
 <div>
 
 
-<p>
-  {{$likedrecipe->recipe_name}}
-</p>
+  <p>
+    {{$likedrecipe->recipe_name}}
+  </p>
 </div>
 
 @endforeach

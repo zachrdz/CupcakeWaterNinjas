@@ -86,13 +86,13 @@ public function showMyRecipesView(){
   //myRecipes2 is used get the correct number of recipes since the paginate above
   //will produce an incorrect # of recipes with count()
   $myRecipes2 = recipe::where('user_id','=', $user->id)->get();
-  $myLikedRecipes = like::where('user_liking_id', '=', $user->id)->get();
+  //$myLikedRecipes = like::where('user_liking_id', '=', $user->id)->get();
   $likeList = [];
   $i=0;
-  foreach($myLikedRecipes as $likes){
-    $likeList[$i++] = recipe::where('id' ,'=', $likes->recipe_id)->first();
-  }
-
+  $likeList = DB::table('recipes')->join('likes', 'users.'. $user->id,'=','likes.' . $user->user_id)->paginate(6);
+  //foreach($myLikedRecipes as $likes){
+    //$likeList[$i++] = recipe::where('id' ,'=', $likes->recipe_id)->first();
+//  }
   //Get the number of recipes added by the current user
   $myRecipe_count = count($myRecipes2);
 
