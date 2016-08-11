@@ -80,6 +80,7 @@ public function showMyRecipesView(){
 
   $user = Auth::user();
   //db request all recipes that correspond to the user id
+  Paginator::setPageName('page_mr');
   $myRecipes = recipe::where('user_id','=', $user->id)->paginate(6);
 
 
@@ -87,6 +88,7 @@ public function showMyRecipesView(){
   //will produce an incorrect # of recipes with count()
   $myRecipes2 = recipe::where('user_id','=', $user->id)->get();
 
+  Paginator::setPageName('page_mlr');
   $likeList = DB::table('likes')
             ->join('recipes', 'likes.recipe_id', '=', 'recipes.id')
             ->where('likes.user_liking_id', '=', $user->id)

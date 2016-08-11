@@ -40,17 +40,22 @@ class RegistrationController extends \BaseController{
               Session::flash('error_message', $messages);
               return Redirect::back()->withInput();
           }
+      $profile_pic = '';
       $name = Input::get('name');
   		$email = Input::get('email');
   		$password = Input::get('password');
   		$repassword = Input::get('repassword');
+
+      if($profile_pic == ""){
+        $profile_pic = "http://1.bp.blogspot.com/-WdbXf90VNc4/UDILN113asI/AAAAAAAACow/zouW-WMerbI/s1600/SUPERMAN+FB.jpg";
+      }
 
   		try{
   			User::create([
           'name'  => $name,
   				'email'	=> $email,
   				'password'	=> Hash::make($password),
-          'profile_pic' => '',
+          'profile_pic' => $profile_pic,
           'recipes_followd' => '',
           'profile_type' => 'user',
           'status' => 0
