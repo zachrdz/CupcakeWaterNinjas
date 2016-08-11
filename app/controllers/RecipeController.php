@@ -133,7 +133,8 @@ public function showRecipePage($id){
        }
        $recipe = recipe::where('id' ,'=',Input::get('id'))->first();
        $comments = comment::where('recipe_id','=', Input::get('id'))->get();
-        return View::make('recipes/viewrecipe',['recipe' => $recipe,'comments' => $comments]);
+       return Redirect::back()->with( 'recipe', $recipe)->with( 'comments' , $comments);
+        //return View::make('recipes/viewrecipe',['recipe' => $recipe,'comments' => $comments]);
 
  }
 }
