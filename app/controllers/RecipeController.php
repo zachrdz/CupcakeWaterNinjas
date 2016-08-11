@@ -6,9 +6,7 @@ class RecipeController extends \BaseController {
 
 //create recipe View
 public function showCreateView(){
-  if(!Auth::check()){
-    Redirect::to('/');
-  }
+
     return View::make('recipes/createrecipe');
 }
 
@@ -76,9 +74,6 @@ public function createRecipe(){
 //show my recipes
 public function showMyRecipesView(){
   //auth check
-  if(!Auth::check()){
-    Redirect::to('/');
-  }
 
   $user = Auth::user();
   //db request all recipes that correspond to the user id
