@@ -13,7 +13,7 @@
 
 Route::get('/login' ,function()
 {
-		return View::make('signup');
+		return View::make('login');
 });
 
 Route::get('/register' ,function()
@@ -22,7 +22,8 @@ Route::get('/register' ,function()
 });
 //auth routes
 Route::post('/register', 'RegistrationController@registerUser');
-Route::post('/login', 'RegistrationController@signUp');
+Route::post('/login', 'RegistrationController@showLogin');
+Route::post('/login', 'RegistrationController@login');
 Route::post('/login', 'RegistrationController@loginWithGoogle');
 Route::post('/loginUser', 'RegistrationController@loginUser');
 Route::get('/gAuth', 'RegistrationController@loginWithGoogle');
