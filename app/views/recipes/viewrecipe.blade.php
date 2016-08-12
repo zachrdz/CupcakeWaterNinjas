@@ -43,10 +43,10 @@
 <div class="row">
   <div class="col-md-6 myform">
 
-    @if(Session::has('error_message'))
+    @if(Session::has('error_messages'))
 
     <div class="alert alert-danger" role="alert">
-      {{Session::get('error_message')}}
+      {{Session::get('error_messages')}}
     </div>
 
 
@@ -54,7 +54,7 @@
   </div>
 </div>
 @if(Auth::check())
-{{Form::open(['action' => 'RecipeController@createComment', 'class' => 'form', 'method'=> 'POST'])}}
+{{Form::open(['id' => 'commentId','action' => 'RecipeController@createComment', 'class' => 'form', 'method'=> 'POST'])}}
   <div class="form-group">
     <textarea name="comment"></textarea>
   </div>

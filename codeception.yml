@@ -8,6 +8,17 @@ settings:
     bootstrap: _bootstrap.php
     colors: false
     memory_limit: 1024M
+coverage:
+    enabled: true
+    remote: true
+    include:
+      - app/*
+    exclude:
+      - app/config/*
+      - app/database/*
+      - app/lang/*
+      - app/storage/*
+      - app/tests/*
 modules:
     config:
         Db:
@@ -15,3 +26,6 @@ modules:
             user: ''
             password: ''
             dump: tests/_data/dump.sql
+            cleanup: false
+            remote: true
+            populate: true

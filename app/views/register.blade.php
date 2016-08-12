@@ -11,7 +11,7 @@
       <div class="panel panel-default">
         <div class="panel-heading">Register</div>
         <div class="panel-body">
-          	{{Form::open(['action' => 'RegistrationController@registerUser', 'method' => 'POST', 'class' => 'form-horizontal'])}}
+          	{{Form::open(['id' => 'register','action' => 'RegistrationController@registerUser', 'method' => 'POST', 'class' => 'form-horizontal'])}}
           <div class="form-group">
             <label class="col-sm-2 control-label">Name</label>
             <div class="col-sm-10">

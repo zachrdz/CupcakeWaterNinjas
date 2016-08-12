@@ -33,9 +33,6 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        @if(!Auth::check())
-        <li><a href="#">My Recipes</a></li>
-        @endif
         @if(Auth::check())
         <li><a href="/view/myrecipes">My Recipes</a></li>
         @endif

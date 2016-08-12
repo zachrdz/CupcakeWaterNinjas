@@ -45,7 +45,7 @@ Route::get('/create/recipe', ['before' => 'auth', 'uses' => 'RecipeController@sh
 Route::get('/view/myrecipes', ['before' => 'auth', 'uses' => 'RecipeController@showMyRecipesView']);
 Route::post('/create/recipe', ['before' => 'auth', 'uses' => 'RecipeController@createRecipe']);
 //routes for reutrning recipes changes
-Route::get('/recipepage/{id}', ['before' => 'auth', 'uses' => 'RecipeController@showRecipePage']);
+Route::get('/recipepage/{id}', 'RecipeController@showRecipePage');
 
 //create a comment on  recipe page
-Route::post('/recipepage/{id}', ['before' => 'auth', 'uses' => 'RecipeController@createComment']);
+Route::post('/recipepage/{id}', 'RecipeController@createComment');

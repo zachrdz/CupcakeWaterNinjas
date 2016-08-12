@@ -8,7 +8,8 @@
 		"artdarek/oauth-4-laravel": "dev-master",
 		"enyo/dropzone": "^4.3",
 		"phpunit/phpunit": "4.4.*",
-		"codeception/codeception": "2.0"
+		"codeception/codeception": "2.0",
+		"codeception/c3": "2.*"
 	},
 	"autoload": {
 		"classmap": [

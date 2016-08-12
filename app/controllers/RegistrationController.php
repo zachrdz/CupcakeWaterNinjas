@@ -17,8 +17,7 @@ class RegistrationController extends \BaseController{
         }
 
       if (Auth::attempt(['email' =>Input::get('email'), 'password' => Input::get('password')])){
-
-    			return Redirect::to('/');
+          return Redirect::to('/');
     		}else{
 
     			Session::flash('error_message', 'Invalid credentials');

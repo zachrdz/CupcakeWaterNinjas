@@ -12,10 +12,10 @@
   <div class="row">
     <div class="col-md-6 myform">
 
-      @if(Session::has('error_message'))
+      @if(Session::has('error_messages'))
 
       <div class="alert alert-danger" role="alert">
-        {{Session::get('error_message')}}
+        {{Session::get('error_messages')}}
       </div>
 
 
@@ -25,7 +25,7 @@
   <div class="row">
 
 
-      {{Form::open(['action'=> 'RecipeController@createRecipe', 'method' => 'POST', 'class' => 'form-horizontal'])}}
+      {{Form::open(['id' => 'recipeCreate','action'=> 'RecipeController@createRecipe', 'method' => 'POST', 'class' => 'form-horizontal'])}}
       <div class="form-group">
         <label class="col-sm-2 control-label">Recipe Name</label>
         <div class="col-sm-7">

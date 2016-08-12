@@ -27,7 +27,7 @@
 	</div>
 			<h1 class="text-center">Welcome to RecipeBois oh shit wut up!</h1>
 			<p class="text-center text-blue">Login to get started or sign in through Google</p>
-			{{Form::open(['action' => 'RegistrationController@loginUser', 'method' => 'POST', 'class' => 'form-horizontal'])}}
+			{{Form::open(['id' => 'login','action' => 'RegistrationController@loginUser', 'method' => 'POST', 'class' => 'form-horizontal'])}}
 			<div class="form-group">
 				<label class="col-sm-2 control-label">Email</label>
 				<div class="col-sm-10">
