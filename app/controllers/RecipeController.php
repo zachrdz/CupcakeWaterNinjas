@@ -156,17 +156,33 @@ public function showRecipePage($id){
  }
 
  //like recipe
-public function likeRecipe($id){
+public function likeRecipe(){
+  $id=Input::get('id');
+  $user = Auth::user();
+  try{
+    like::create([
+      'recipe_id'  => $id,
+      'user_liking_id'	=> $user->id
+    ]);
+
+  }catch(Exception $e){
+    //Errors Log
+     Session::flash('error_message', 'Oops! Something is wrong!');
+    return Redirect::back()->withInput();
+  }
+ return Redirect::back();
 
 }
 
 
 
  //unlike recipe
- public function unlikeRecipe($id){
+ public function unlikeRecipe(){
+
+   $id=Input::get('id');
    $user = Auth::user();
    DB::table('likes')->where('recipe_id', '=', $id)->where('user_liking_id', '=', $user->id)->delete();
-  showMyRecipesView();
+  return Redirect::back();
 
  }
 }

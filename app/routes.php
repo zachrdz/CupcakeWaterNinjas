@@ -50,6 +50,6 @@ Route::get('/recipepage/{id}', 'RecipeController@showRecipePage');
 //create a comment on  recipe page
 Route::post('/recipepage/{id}', 'RecipeController@createComment');
 //like a recipe
-Route::post('/recipe/like/{id}',['before' => 'auth', 'uses' => 'RecipeController@likeRecipe']);
+Route::post('/recipe/like',['before' => 'auth', 'uses' => 'RecipeController@likeRecipe']);
 //unlike recipe
-Route::post('/recipe/unlike/{id}',['before' => 'auth', 'uses' => 'RecipeController@unlikeRecipe']);
+Route::post('/recipe/unlike',['before' => 'auth', 'uses' => 'RecipeController@unlikeRecipe']);
