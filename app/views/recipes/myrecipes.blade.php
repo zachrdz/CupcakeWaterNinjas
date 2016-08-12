@@ -52,13 +52,7 @@
         @foreach($myRecipes as $index =>$recipe)
         <div class="recipe">
           <div class="image">
-            <img src="{{$recipe->recipe_pic}}">
-            <div class="likes">
-              {{Form::open(['id' => 'like','action'=> 'RecipeController@likeRecipe', 'method' => 'POST'])}}
-              {{Form::hidden('id', $recipe->id)}}
-              <a onclick="document.forms[{{$index}}].submit(); return false;"><i class="fa fa-heart-o lv" data-test = "pulse"></i></a>
-              {{Form::close()}}
-            </div>
+              <a href={{ url('/recipepage/' . $recipe->id) }}><img src="{{$recipe->recipe_pic}}"></a>
             <div class="name">
               <h3>{{$recipe->recipe_name}}</h3>
             </div>

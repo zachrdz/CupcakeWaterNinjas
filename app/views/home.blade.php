@@ -91,9 +91,6 @@
 	<div class="recipe">
 		<div class="image">
 	    	  <a href={{ url('/recipepage/' . $recipe->id) }}><img src="{{$recipe->recipe_pic}}"></a>
-	  		<div class="likes">
-	    		<i class="fa fa-heart-o lv" data-test="pulse"></i>
-			</div>
 	 		<div class="name">
 	 			<h3>{{$recipe->recipe_name}}</h3>
 	 		</div>
