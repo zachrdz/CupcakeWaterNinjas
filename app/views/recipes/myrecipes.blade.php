@@ -65,7 +65,7 @@
           <div class="image">
             <a href={{ url('/recipepage/' . $recipe->id) }}><img src="{{$recipe->recipe_pic}}"></a>
             <div class="likes">
-              <i class="fa fa-heart lv" data-test="pulse"></i>
+              <a href={{ url('/recipe/unlike/' . $recipe->id)}}><i class="fa fa-heart lv" data-test="pulse"></i></a>
             </div>
             <div class="name">
               <h3>{{$recipe->recipe_name}}</h3>

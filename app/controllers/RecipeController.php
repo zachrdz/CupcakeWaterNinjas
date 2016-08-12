@@ -154,4 +154,19 @@ public function showRecipePage($id){
         //return View::make('recipes/viewrecipe',['recipe' => $recipe,'comments' => $comments]);
 
  }
+
+ //like recipe
+public function likeRecipe($id){
+
+}
+
+
+
+ //unlike recipe
+ public function unlikeRecipe($id){
+   $user = Auth::user();
+   DB::table('likes')->where('recipe_id', '=', $id)->where('user_liking_id', '=', $user->id)->delete();
+  showMyRecipesView();
+
+ }
 }
