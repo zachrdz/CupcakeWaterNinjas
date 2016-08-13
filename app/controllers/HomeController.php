@@ -119,10 +119,6 @@ class HomeController extends BaseController {
 
 
 
-			echo "elapsed time is " . (time() - strtotime($previous_featured_recipes->updated_at)) . " seconds. ";
-			echo "Today's featured recipes is currently set to change every 60 seconds on page refresh for testing purposes. ";
-
-			echo "Note: Will change refresh-rate to every 24 hours before presentation. Delete this message before presentation";
 
 			//This if statement tests to see if a certain amount of seconds has passed.
 			//After the specified time has passed, The featured recipe list will change to a
@@ -133,7 +129,7 @@ class HomeController extends BaseController {
 			//                                     update the featured recipes to a new set.
 
 			//The featured recipes is currently set to refresh every 60 seconds.
-			if (time() - strtotime($previous_featured_recipes->updated_at) > 60){
+			if (time() - strtotime($previous_featured_recipes->updated_at) > 60*60*24){
 
 				//This block will run if there are 16 or more recipes in the DB
 				if (count($recipes) >= 16){
