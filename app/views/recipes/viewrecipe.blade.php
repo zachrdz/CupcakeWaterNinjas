@@ -58,7 +58,7 @@
                 </div>
             </div>
             @endif
-            <img src="{{$recipe->recipe_pic}}" height="300px">
+            <img src="../uploads/{{$recipe->id}}.png" height="300px">
         </div>
     </div>
     <hr>
