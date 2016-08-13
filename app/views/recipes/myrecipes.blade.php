@@ -52,7 +52,7 @@
         @foreach($myRecipes as $index =>$recipe)
         <div class="recipe">
           <div class="image">
-              <a href={{ url('/recipepage/' . $recipe->id) }}><img src="{{$recipe->recipe_pic}}"></a>
+              <a href={{ url('/recipepage/' . $recipe->id) }}><img height="300px" src="../uploads/{{$recipe->id}}.png" onerror="if (this.src != 'error.jpg') this.src = 'http://www.pani-food.com/img/uploads/restaurant-default.png';"></a>
             <div class="name">
               <h3>{{$recipe->recipe_name}}</h3>
             </div>

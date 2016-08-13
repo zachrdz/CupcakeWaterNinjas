@@ -77,11 +77,11 @@
 
   @if(count($recipes) <= 8)
     @foreach($recipes as $recipe)
-    <div class="item"><a href={{ url('/recipepage/' . $recipe->id) }}><img src="{{$recipe->recipe_pic}}" alt="{{$recipe->recipe_name}}"></div></a>
+    <div class="item"><a href={{ url('/recipepage/' . $recipe->id) }}><img height="300px" src="../uploads/{{$recipe->id}}.png" onerror="if (this.src != 'error.jpg') this.src = 'http://www.pani-food.com/img/uploads/restaurant-default.png';"></div></a>
     @endforeach
   @else
     @foreach($updated_featured_recipes as $featured)
-    <div class="item"><a href={{ url('/recipepage/' . $featured->id) }}><img src="{{$featured->recipe_pic}}" alt="{{$featured->recipe_name}}"></div></a>
+    <div class="item"><a href={{ url('/recipepage/' . $featured->id) }}><img height="300px" src="../uploads/{{$recipe->id}}.png" onerror="if (this.src != 'error.jpg') this.src = 'http://www.pani-food.com/img/uploads/restaurant-default.png';"></div></a>
     @endforeach
   @endif
 
@@ -97,7 +97,7 @@
  @foreach($recipes1 as $recipe)
 	<div class="recipe">
 		<div class="image">
-	    	  <a href={{ url('/recipepage/' . $recipe->id) }}><img src="{{$recipe->recipe_pic}}"></a>
+	    	  <a href={{ url('/recipepage/' . $recipe->id) }}><img height="300px" src="../uploads/{{$recipe->id}}.png" onerror="if (this.src != 'error.jpg') this.src = 'http://www.pani-food.com/img/uploads/restaurant-default.png';"></a>
 	 		<div class="name">
 	 			<h3>{{$recipe->recipe_name}}</h3>
 	 		</div>
