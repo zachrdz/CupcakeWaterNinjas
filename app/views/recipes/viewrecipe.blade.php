@@ -58,7 +58,7 @@
 						<?php
 							$exploded1 = explode( "\n", $recipe->directions);
 						?>
-						@for ($i = 0; $i < count($exploded); $i++)
+						@for ($i = 0; $i < count($exploded1); $i++)
             	<p>Step {{$i+1}}: {{$exploded1[$i]}}</p>
 						@endfor
         </div>
