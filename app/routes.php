@@ -53,3 +53,51 @@ Route::post('/recipepage/{id}', 'RecipeController@createComment');
 Route::post('/recipe/like',['before' => 'auth', 'uses' => 'RecipeController@likeRecipe']);
 //unlike recipe
 Route::post('/recipe/unlike',['before' => 'auth', 'uses' => 'RecipeController@unlikeRecipe']);
+
+//Dropzone upload route
+Route::post('/upload', function () {
+
+	$rows = DB::table('recipes')->orderBy('id', 'desc')->take(5)->get();
+
+	//$id = "0";
+	$dbId = "0";
+	if(isset($rows[0]->id)){
+		$dbId = strval($rows[0]->id);
+	}
+
+	$input = Input::all();
+
+	$rules = array(
+		'file' => 'image|max:3000',
+	);
+
+	$validation = Validator::make($input, $rules);
+
+	if ($validation->fails())
+	{
+		return Response::make($validation->errors->first(), 400);
+	}
+
+	$file = Input::file('file');
+
+	if($file) {
+
+		$destinationPath = public_path() . '/uploads/';
+		$filename = $file->getClientOriginalName();
+		$ext = explode(".", $filename);
+
+		$newFilename = $dbId.".".$ext[1];
+
+		$upload_success = Input::file('file')->move($destinationPath, $newFilename);
+
+		if ($upload_success) {
+
+			// resizing an uploaded file
+			//Image::make($destinationPath . $filename)->resize(100, 100)->save($destinationPath . "100x100_" . $filename);
+
+			return Response::json('success', 200);
+		} else {
+			return Response::json('error', 400);
+		}
+	}
+});

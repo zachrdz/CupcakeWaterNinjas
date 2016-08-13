@@ -12,32 +12,35 @@ public function showCreateView(){
 
 //create a recipe
 public function createRecipe(){
+    if(Request::ajax()) {
 
-  		$validation = Validator::make(Input::all(),[
-  			'recipeName' =>' required',
-  			'difficulty'	=> 'required',
-        'ingredients' =>' required',
-  			'directions'	=> 'required'
-  		]);
-      if($validation->fails()){
-              $messages = $validation->messages();
-              Session::flash('error_messages', $messages);
-              return Redirect::back()->withInput();
-          }
+        $validation = Validator::make(Input::all(), [
+            'recipeName' => ' required',
+            'difficulty' => 'required',
+            'ingredients' => 'required',
+            'directions' => 'required'
+        ]);
+        if ($validation->fails()) {
+            $messages = $validation->messages();
 
-          $user = Auth::user();
-          $recipeName = Input::get('recipeName');
-          $difficulty = Input::get('difficulty');
-          $ingredients = Input::get('ingredients');
-          $directions = Input::get('directions');
-          $cook_time = Input::get('cook_time');
-          $recipe_pic = "";
-          if($recipe_pic == ""){
+            echo $messages;
+            //Session::flash('error_messages', $messages);
+            //return Redirect::back()->withInput();
+        }
+
+        $user = Auth::user();
+        $recipeName = Input::get('recipeName');
+        $difficulty = Input::get('difficulty');
+        $ingredients = Input::get('ingredients');
+        $directions = Input::get('directions');
+        $cook_time = Input::get('cook_time');
+        $recipe_pic = "";
+        if ($recipe_pic == "") {
             $recipe_pic = "http://www.pani-food.com/img/uploads/restaurant-default.png";
-          }
+        }
 
 
-          //test print
+        //test print
         /*  echo '<p>' .
           $recipeName .'<br />' .
           $difficulty .'<br />' .
@@ -46,33 +49,35 @@ public function createRecipe(){
           $recipe_pic .
           '</p>';
           */
-         try{
+        try {
 
-          	// try to create recipe
+            // try to create recipe
             $recipe = Recipe::create([
-              'user_id' => $user->id,
-              'recipe_name'=> $recipeName,
-              'difficulty' => $difficulty,
-              'likes' => 0,
-              'dislikes' => 0,
-              'views' => 0,
-              'ingredients' =>  $ingredients,
-              'directions' => $directions,
-              'cook_time' => $cook_time,
-              'recipe_pic' => $recipe_pic
+                'user_id' => $user->id,
+                'recipe_name' => $recipeName,
+                'difficulty' => $difficulty,
+                'likes' => 0,
+                'dislikes' => 0,
+                'views' => 0,
+                'ingredients' => $ingredients,
+                'directions' => $directions,
+                'cook_time' => $cook_time,
+                'recipe_pic' => $recipe_pic
 
-          	]);
-
-
-          }catch(Exception $e){
-          	Session::flash('error_message',
-          	$e);
-          	return Redirect::back()->withInput();
-         }
-
-          return Redirect::to('/view/myrecipes');
+            ]);
 
 
+        } catch (Exception $e) {
+            //Session::flash('error_message',
+            //    $e);
+            //return Redirect::back()->withInput();
+            echo "fail";
+        }
+
+        echo $recipe->id;
+    }else{
+        echo 'ajax only!';
+    }
 }
 
 //show my recipes
