@@ -8,6 +8,7 @@
 
 <!-- Include js plugin -->
 <script src="../js/dropzone/dist/min/dropzone.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 @endsection
 
 @section('content')
@@ -28,10 +29,10 @@
 <div class="container">
 	<div class="row">
         <div class="col-md-4">
-            <h3>Name</h3>
+            <h3><b>Name</b></h3>
             <p>{{$recipe->recipe_name}}</p>
             <br><br><hr>
-            <h5>Difficulty</h5>
+            <h3><b>Difficulty</b></h3>
             <span>{{$recipe->difficulty}}</span>
         </div>
         <div class="col-md-8 recipe_main_image">
@@ -41,15 +42,25 @@
     <hr>
     <div class="row">
         <div class="col-md-12">
-            <h3>Ingredients</h3>
-            <p>{{$recipe->ingredients}}</p>
+            <h3><b>Ingredients</b></h3>
+						<?php
+						$exploded = explode( "\n", $recipe->ingredients);
+						?>
+						@for ($j = 0; $j < count($exploded); $j++)
+            	<p>{{$j+1}}: {{$exploded[$j]}}</p>
+						@endfor
         </div>
     </div>
     <hr>
     <div class="row">
         <div class="col-md-12">
-            <h3>Directions</h3>
-            <p>{{$recipe->directions}}</p>
+            <h3><b>Directions</b></h3>
+						<?php
+							$exploded1 = explode( "\n", $recipe->directions);
+						?>
+						@for ($i = 0; $i < count($exploded); $i++)
+            	<p>Step {{$i+1}}: {{$exploded1[$i]}}</p>
+						@endfor
         </div>
     </div>
     <br>

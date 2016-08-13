@@ -7,6 +7,10 @@ hr {
     border-color: #9d9d9d;
 }
 
+h3 {
+  font-family: 'Indie Flower', cursive;
+}
+
 /*** Comments Styling ***/
 .thumbnail {
     padding:0px;

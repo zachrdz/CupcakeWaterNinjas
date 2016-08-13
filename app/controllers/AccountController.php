@@ -43,7 +43,7 @@ class AccountController extends BaseController {
 			DB::table('users')
             ->where('id', $user->id)
             ->update(['profile_pic' => Input::get('profile_pic')]);
-					}
+
 		DB::table('users')
 				    ->where('id', $user->id)
 				    ->update(['password' => Hash::make(Input::get('password'))]);

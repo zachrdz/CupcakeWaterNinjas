@@ -36,6 +36,7 @@ public function createRecipe(){
             $recipe_pic = "http://www.pani-food.com/img/uploads/restaurant-default.png";
           }
 
+
           //test print
         /*  echo '<p>' .
           $recipeName .'<br />' .
