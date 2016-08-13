@@ -68,16 +68,22 @@
 
 
 
+
+
 <!-- Code for the owl picture carousel -->
+
+<h2><b>Today's Featured recipes</b></h2>
 <div id="owl-demo">
-  <div class="item"><img src="http://www.handletheheat.com/wp-content/uploads/2013/10/Ultimate-Chocolate-Chip-Cookies-Square-550x550.jpg" alt="Chocolate Chip"></div>
-  <div class="item"><img src="http://www.handletheheat.com/wp-content/uploads/2015/02/Coconut-Oil-Brownies-Square.jpg" alt="Brownies"></div>
-  <div class="item"><img src="http://images.bigoven.com/image/upload/v1421123263/salmon-sushi-3.jpg" alt="Sushi"></div>
-  <div class="item"><img src="http://www.seriouseats.com/images/2015/02/20150213-chicken-fried-steak-joshua-bousel.jpg" alt="Chicken Fried Steak"></div>
-  <div class="item"><img src="http://www.centercutcook.com/wp-content/uploads/2014/03/fried-shrimp-6.jpg" alt="Fried Shrimp"></div>
-  <div class="item"><img src="http://greatist.com/sites/default/files/styles/big_share/public/SlowCooker-Pork-Ramen_0.jpg?itok=kvBKeje7" alt="Arcanine"></div>
-  <div class="item"><img src="http://www.noobcook.com/wp-content/uploads/2014/06/japbeefcurry.jpg" alt="Beef Curry"></div>
-  <div class="item"><img src="http://smokeybones.com/wp-content/uploads/2015/11/smokehouse-burger.jpg" alt="Burger"></div>
+
+  @if(count($recipes) <= 8)
+    @foreach($recipes as $recipe)
+    <div class="item"><a href={{ url('/recipepage/' . $recipe->id) }}><img src="{{$recipe->recipe_pic}}" alt="{{$recipe->recipe_name}}"></div></a>
+    @endforeach
+  @else
+    @foreach($updated_featured_recipes as $featured)
+    <div class="item"><a href={{ url('/recipepage/' . $featured->id) }}><img src="{{$featured->recipe_pic}}" alt="{{$featured->recipe_name}}"></div></a>
+    @endforeach
+  @endif
 
 </div>
 
@@ -87,7 +93,7 @@
 <div id="content">
   <h2><b>Most recent recipes</b></h2>
  <!-- Recipe Start -->
- @foreach($recipes as $recipe)
+ @foreach($recipes1 as $recipe)
 	<div class="recipe">
 		<div class="image">
 	    	  <a href={{ url('/recipepage/' . $recipe->id) }}><img src="{{$recipe->recipe_pic}}"></a>
@@ -103,8 +109,9 @@
 	</div>
   <!-- Recipe End -->
   @endforeach
-
-
+  <div>
+{{ $recipes1->links() }}
+</div>
 
 
 
