@@ -55,12 +55,9 @@
 			</div>
 			<div class="col-sm-4">
 				{{Form::close()}}
-				{{Form::open(['action' => 'RegistrationController@loginWithGoogle', 'method' => 'POST', 'class' =>
-				'form-horizontal'])}}
-                <button type="submit" class="btn btn-danger btn-block">
-                    <i class="fa fa-google" aria-hidden="true"></i> Login With Google
-                </button>
-                {{Form::close()}}
+				{{Form::open(['action' => 'RegistrationController@loginWithGoogle', 'method' => 'POST', 'class' => 'form-horizontal'])}}
+        {{Form::submit("Login with Google", ['class' => 'btn btn-primary'])}}
+        {{Form::close()}}
 			</div>
 		</div>
 	</div>

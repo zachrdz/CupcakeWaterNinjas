@@ -26,7 +26,7 @@ Route::post('/login', 'RegistrationController@showLogin');
 Route::post('/login', 'RegistrationController@login');
 Route::post('/login', 'RegistrationController@loginWithGoogle');
 Route::post('/loginUser', 'RegistrationController@loginUser');
-Route::get('/gAuth', ['before' => 'auth', 'uses' => 'RegistrationController@loginWithGoogle']);
+Route::get('/gAuth', 'RegistrationController@loginWithGoogle');
 Route::get('/useraccount', ['before' => 'auth', 'uses' => 'AccountController@showAccountPage']);
 Route::post('/useraccount', ['before' => 'auth', 'uses' => 'AccountController@postAccountChanges']);
 
