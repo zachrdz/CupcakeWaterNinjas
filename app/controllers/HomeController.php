@@ -23,6 +23,15 @@ class HomeController extends BaseController {
 		//Check to see if the table is empty
 		$is_table_empty = Featured::where('id', '>', 0)->get();
 
+		if($recipes->isEmpty()){
+			return View::make('home', [
+				'recipes' => $recipes,
+				'recipes1' => $recipes1]);
+
+		}
+
+		else{
+
 		//If table is empty, we will create a row and fill it up depending on the amount of recipes in the DB
 		if ($is_table_empty->isEmpty()){
 
@@ -71,13 +80,7 @@ class HomeController extends BaseController {
 				 // try to create recipe
 				 Featured::create([
 					 'recipe_id_1' => $random_recipe_id[0],
-					 'recipe_id_2' => $random_recipe_id[1],
-					 'recipe_id_3' => $random_recipe_id[2],
-					 'recipe_id_4' => $random_recipe_id[3],
-					 'recipe_id_5' => $random_recipe_id[4],
-					 'recipe_id_6' => $random_recipe_id[5],
-					 'recipe_id_7' => $random_recipe_id[6],
-					 'recipe_id_8' => $random_recipe_id[7]
+
 				 ]);
 
 
@@ -86,7 +89,6 @@ class HomeController extends BaseController {
 		 		$e);
 		 		return Redirect::back()->withInput();
 		  }
-
 		}
 
 
@@ -255,6 +257,6 @@ class HomeController extends BaseController {
 			'recipes1' => $recipes1,
 			'updated_featured_recipes' => $updated_featured_recipes]);
 
-	}
+	}}
 
 }

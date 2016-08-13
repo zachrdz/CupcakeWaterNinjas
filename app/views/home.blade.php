@@ -93,6 +93,7 @@
 <div id="content">
   <h2><b>Most recent recipes</b></h2>
  <!-- Recipe Start -->
+
  @foreach($recipes1 as $recipe)
 	<div class="recipe">
 		<div class="image">
