@@ -50,9 +50,26 @@
       <div id="content">
         <h2><b>My Recipes</b></h2>
         @foreach($myRecipes as $index =>$recipe)
+        <?php
+        $fileExt = "";
+        if(file_exists('../uploads/{{$recipe->id}}.png')){
+          $fileExt = ".png";
+        }
+        if(file_exists('../uploads/{{$recipe->id}}.jpg')){
+          $fileExt = ".jpg";
+        }
+        if(file_exists('../uploads/{{$recipe->id}}.jpeg')){
+          $fileExt = ".jpeg";
+        }
+        if(file_exists('../uploads/{{$recipe->id}}.gif')){
+          $fileExt = ".gif";
+        }
+        $recipeId = $recipe->id;
+        $imgPath = "../uploads/$recipeId". "." . $fileExt;
+        ?>
         <div class="recipe">
           <div class="image">
-              <a href={{ url('/recipepage/' . $recipe->id) }}><img height="300px" src="../uploads/{{$recipe->id}}.png" onerror="if (this.src != 'error.jpg') this.src = 'http://www.pani-food.com/img/uploads/restaurant-default.png';"></a>
+              <a href={{ url('/recipepage/' . $recipe->id) }}><img height="300px" src="{{$imgPath}}" onerror="if (this.src != 'error.jpg') this.src = 'http://www.pani-food.com/img/uploads/restaurant-default.png';"></a>
             <div class="name">
               <h3>{{$recipe->recipe_name}}</h3>
             </div>
@@ -73,9 +90,26 @@
       <div id="content">
         <h2><b>My Liked Recipes</b></h2>
         @foreach($myLikedRecipes as $recipe)
+        <?php
+        $fileExt = "";
+        if(file_exists('../uploads/{{$recipe->id}}.png')){
+          $fileExt = ".png";
+        }
+        if(file_exists('../uploads/{{$recipe->id}}.jpg')){
+          $fileExt = ".jpg";
+        }
+        if(file_exists('../uploads/{{$recipe->id}}.jpeg')){
+          $fileExt = ".jpeg";
+        }
+        if(file_exists('../uploads/{{$recipe->id}}.gif')){
+          $fileExt = ".gif";
+        }
+        $recipeId = $recipe->id;
+        $imgPath = "../uploads/$recipeId". "." . $fileExt;
+        ?>
         <div class="recipe">
           <div class="image">
-            <a href={{ url('/recipepage/' . $recipe->id) }}><img height="300px" src="../uploads/{{$recipe->id}}.png" onerror="if (this.src != 'error.jpg') this.src = 'http://www.pani-food.com/img/uploads/restaurant-default.png';"></a>
+            <a href={{ url('/recipepage/' . $recipe->id) }}><img height="300px" src="{{$imgPath}}" onerror="if (this.src != 'error.jpg') this.src = 'http://www.pani-food.com/img/uploads/restaurant-default.png';"></a>
             <div class="likes">
           {{Form::open(['id' => 'unlike','action'=> 'RecipeController@unlikeRecipe', 'method' => 'POST'])}}
           {{Form::hidden('id', $recipe->id)}}

@@ -77,11 +77,29 @@
 
   @if(count($recipes) <= 8)
     @foreach($recipes as $recipe)
-    <div class="item"><a href={{ url('/recipepage/' . $recipe->id) }}><img height="300px" src="../uploads/{{$recipe->id}}.png" onerror="if (this.src != 'error.jpg') this.src = 'http://www.pani-food.com/img/uploads/restaurant-default.png';"></div></a>
+    <?php
+    $fileExt = "";
+    if(file_exists('../uploads/{{$recipe->id}}.png')){
+        $fileExt = ".png";
+    }
+    if(file_exists('../uploads/{{$recipe->id}}.jpg')){
+        $fileExt = ".jpg";
+    }
+    if(file_exists('../uploads/{{$recipe->id}}.jpeg')){
+        $fileExt = ".jpeg";
+    }
+    if(file_exists('../uploads/{{$recipe->id}}.gif')){
+        $fileExt = ".gif";
+    }
+    $recipeId = $recipe->id;
+    $imgPath = "../uploads/$recipeId". "." . $fileExt;
+    ?>
+
+    <div class="item"><a href={{ url('/recipepage/' . $recipe->id) }}><img height="300px" src="{{$imgPath}}" onerror="if (this.src != 'error.jpg') this.src = 'http://www.pani-food.com/img/uploads/restaurant-default.png';"></div></a>
     @endforeach
   @else
     @foreach($updated_featured_recipes as $featured)
-    <div class="item"><a href={{ url('/recipepage/' . $featured->id) }}><img height="300px" src="../uploads/{{$recipe->id}}.png" onerror="if (this.src != 'error.jpg') this.src = 'http://www.pani-food.com/img/uploads/restaurant-default.png';"></div></a>
+    <div class="item"><a href={{ url('/recipepage/' . $featured->id) }}><img height="300px" src="{{$imgPath}}" onerror="if (this.src != 'error.jpg') this.src = 'http://www.pani-food.com/img/uploads/restaurant-default.png';"></div></a>
     @endforeach
   @endif
 
@@ -95,9 +113,26 @@
  <!-- Recipe Start -->
 
  @foreach($recipes1 as $recipe)
+    <?php
+    $fileExt = "";
+    if(file_exists('../uploads/{{$recipe->id}}.png')){
+        $fileExt = ".png";
+    }
+    if(file_exists('../uploads/{{$recipe->id}}.jpg')){
+        $fileExt = ".jpg";
+    }
+    if(file_exists('../uploads/{{$recipe->id}}.jpeg')){
+        $fileExt = ".jpeg";
+    }
+    if(file_exists('../uploads/{{$recipe->id}}.gif')){
+        $fileExt = ".gif";
+    }
+    $recipeId = $recipe->id;
+    $imgPath = "../uploads/$recipeId". "." . $fileExt;
+    ?>
 	<div class="recipe">
 		<div class="image">
-	    	  <a href={{ url('/recipepage/' . $recipe->id) }}><img height="300px" src="../uploads/{{$recipe->id}}.png" onerror="if (this.src != 'error.jpg') this.src = 'http://www.pani-food.com/img/uploads/restaurant-default.png';"></a>
+	    	  <a href={{ url('/recipepage/' . $recipe->id) }}><img height="300px" src="{{$imgPath}}" onerror="if (this.src != 'error.jpg') this.src = 'http://www.pani-food.com/img/uploads/restaurant-default.png';"></a>
 	 		<div class="name">
 	 			<h3>{{$recipe->recipe_name}}</h3>
 	 		</div>

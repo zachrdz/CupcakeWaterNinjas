@@ -58,7 +58,24 @@
                 </div>
             </div>
             @endif
-            <img height="300px" src="../uploads/{{$recipe->id}}.png" onerror="if (this.src != 'error.jpg') this.src = 'http://www.pani-food.com/img/uploads/restaurant-default.png';">
+            <?php
+            $fileExt = "";
+            if(file_exists('../uploads/{{$recipe->id}}.png')){
+                $fileExt = ".png";
+            }
+            if(file_exists('../uploads/{{$recipe->id}}.jpg')){
+                $fileExt = ".jpg";
+            }
+            if(file_exists('../uploads/{{$recipe->id}}.jpeg')){
+                $fileExt = ".jpeg";
+            }
+            if(file_exists('../uploads/{{$recipe->id}}.gif')){
+                $fileExt = ".gif";
+            }
+            $recipeId = $recipe->id;
+            $imgPath = "../uploads/$recipeId". "." . $fileExt;
+            ?>
+            <img height="300px" src="{{$imgPath}}" onerror="if (this.src != 'error.jpg') this.src = 'http://www.pani-food.com/img/uploads/restaurant-default.png';">
         </div>
     </div>
     <hr>
