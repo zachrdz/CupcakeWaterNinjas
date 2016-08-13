@@ -39,7 +39,7 @@ class AccountController extends BaseController {
 				}
 		$user = Auth::user();
 
-		if(Input::get('profile_pic') != null){
+
 			DB::table('users')
             ->where('id', $user->id)
             ->update(['profile_pic' => Input::get('profile_pic')]);

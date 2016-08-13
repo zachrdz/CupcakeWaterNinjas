@@ -159,8 +159,14 @@ public function showRecipePage($id){
 public function likeRecipe(){
   $id=Input::get('id');
   $user = Auth::user();
+  $check = like::where('recipe_id', '=', $id)->where('user_liking_id', '=', $user->id)->get();
+  if($check->count() > 0){
+    Session::flash('error_messages', 'You cannot like again');
+   return Redirect::back()->withInput();
+  }
+
   try{
-    like::create([
+    Like::create([
       'recipe_id'  => $id,
       'user_liking_id'	=> $user->id
     ]);
@@ -170,7 +176,8 @@ public function likeRecipe(){
      Session::flash('error_message', 'Oops! Something is wrong!');
     return Redirect::back()->withInput();
   }
- return Redirect::back();
+  DB::table('recipes')->where('id', '=', $id)->increment('likes');
+  return Redirect::back();
 
 }
 
@@ -182,7 +189,8 @@ public function likeRecipe(){
    $id=Input::get('id');
    $user = Auth::user();
    DB::table('likes')->where('recipe_id', '=', $id)->where('user_liking_id', '=', $user->id)->delete();
-  return Redirect::back();
+   DB::table('recipes')->where('id', '=', $id)->decrement('likes');
+   return Redirect::back();
 
  }
 }

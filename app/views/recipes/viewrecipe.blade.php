@@ -65,7 +65,12 @@
                 {{Session::get('error_messages')}}
             </div>
             @endif
-
+						{{Form::open(['id' => 'like','action'=> 'RecipeController@likeRecipe', 'method' => 'POST'])}}
+	          {{Form::hidden('id', $recipe->id)}}
+						<div class='form-group'>
+						{{Form::submit("Like", ['class' => 'btn btn-primary'])}}
+	          {{Form::close()}}
+						</div>
             @if(Auth::check())
             <div class="well" style="padding-bottom: 0px;">
                 {{Form::open(['id' => 'commentId','action' => 'RecipeController@createComment','role' => 'form', 'method'=> 'POST'])}}

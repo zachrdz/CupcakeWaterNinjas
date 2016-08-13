@@ -12,7 +12,9 @@ coverage:
     enabled: true
     remote: true
     include:
-      - app/*
+      - app/models/*
+      - app/controllers/*
+      - app/views/*
     exclude:
       - app/config/*
       - app/database/*
