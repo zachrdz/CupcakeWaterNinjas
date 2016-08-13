@@ -58,7 +58,7 @@
                 </div>
             </div>
             @endif
-            <img src="../uploads/{{$recipe->id}}.png" height="300px">
+            <img height="300px" src="../uploads/{{$recipe->id}}.png" onerror="if (this.src != 'error.jpg') this.src = 'http://www.pani-food.com/img/uploads/restaurant-default.png';">
         </div>
     </div>
     <hr>
