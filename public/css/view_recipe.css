@@ -3,6 +3,12 @@
     border-left: 1px solid #9d9d9d;
 }
 
+.like-button {
+    position: absolute;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
 hr {
     border-color: #9d9d9d;
 }
