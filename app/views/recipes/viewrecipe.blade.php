@@ -73,7 +73,7 @@
                 $fileExt = ".gif";
             }
             $recipeId = $recipe->id;
-            $imgPath = "../uploads/$recipeId". "." . $fileExt;
+            $imgPath = "../uploads/$recipeId" . $fileExt;
             ?>
             <img height="300px" src="{{$imgPath}}" onerror="if (this.src != 'error.jpg') this.src = 'http://www.pani-food.com/img/uploads/restaurant-default.png';">
         </div>

@@ -65,7 +65,7 @@
           $fileExt = ".gif";
         }
         $recipeId = $recipe->id;
-        $imgPath = "../uploads/$recipeId". "." . $fileExt;
+        $imgPath = "../uploads/$recipeId" . $fileExt;
         ?>
         <div class="recipe">
           <div class="image">
@@ -105,7 +105,7 @@
           $fileExt = ".gif";
         }
         $recipeId = $recipe->id;
-        $imgPath = "../uploads/$recipeId". "." . $fileExt;
+        $imgPath = "../uploads/$recipeId". $fileExt;
         ?>
         <div class="recipe">
           <div class="image">
