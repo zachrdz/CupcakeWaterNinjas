@@ -27,7 +27,7 @@
 			@endif
 		</div>
 	</div>
-	<h1 class="text-center">Welcome to RecipeBois oh shit wut up!</h1>
+	<h1 class="text-center">Welcome to RecipeBois!</h1>
 
 	<p class="text-center text-blue">Login to get started or sign in through Google</p>
 	{{Form::open(['id' => 'login','action' => 'RegistrationController@loginUser', 'method' => 'POST', 'class' =>
